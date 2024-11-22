@@ -13,7 +13,8 @@
     <td><%= tod.name %></td>
     <td><%= tod.desciption%></td>
     <td><%= link_to "Edit", edit_todo_path(tod) %></td>
-    <td><%= link_to "Show", todos_path(tod) %></td>
+    <td><%= link_to "Show", todo_path(tod) %></td>
+    <td><%= button_to "Delete", todo_path(tod), method: :delete, data: {turbo_confirm:"Are you Sure?" } %></td>
   </tr>
   <%end%>
 </table>
