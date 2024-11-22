@@ -10,7 +10,7 @@ class TodosController < ApplicationController
      redirect_to todo_path(@todo)
    else
     render :new, status: :unprocessable_entity
-   end  
+   end
   end
 
   def show
@@ -25,12 +25,15 @@ class TodosController < ApplicationController
     if  @todo.update(todo_params)
       flash[:notice] = "Todo was successfully update"
        redirect_to todo_path(@todo)
-     else 
+    else
       render :edit
-     end   
+    end
+  end
+  def index
+   @todos =Todo.all
   end
   private
      def todo_params
-      params.require(:todo).permit(:name, :desciption) 
+      params.require(:todo).permit(:name, :desciption)
      end
 end
